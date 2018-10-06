@@ -11,11 +11,11 @@ const htmlWebpackPlugin = new HtmlWebpackPlugin({
 const cleanWebpackPlugin = new CleanWebpackPlugin(['dist']);
 
 module.exports = {
-   entry: {
-     app: './src/index.js'
-   },
-   target: 'web',
-   module: {
+  entry: {
+    app: './src/index.js',
+  },
+  target: 'web',
+  module: {
     rules: [
       {
         test: /\.(js|jsx)$/,
@@ -36,18 +36,18 @@ module.exports = {
       },
     ],
   },
-   // Specifies which extension webpack will resolve
-   resolve: { extensions: ["*", ".js", ".jsx"] },
+  // Specifies which extension webpack will resolve
+  resolve: { extensions: ['*', '.js', '.jsx'] },
 
-   // setup output for the bundled js
-   output: {
-     path: path.resolve(__dirname, 'dist'),
-     publicPath: "/",
-     filename: '[name].bundle.js',
-    },
+  // setup output for the bundled js
+  output: {
+    path: path.resolve(__dirname, 'dist'),
+    publicPath: '/',
+    filename: '[name].bundle.js',
+  },
 
-    plugins: [
-      cleanWebpackPlugin,
-      htmlWebpackPlugin,
-    ],
- };
+  plugins: [
+    cleanWebpackPlugin,
+    htmlWebpackPlugin,
+  ],
+};
