@@ -1,14 +1,21 @@
-import React, { Component} from "react";
-import "./styles/index.scss";
+import React from 'react';
+import {
+  BrowserRouter,
+  Redirect,
+  Route,
+  Switch,
+} from 'react-router-dom';
+import { hot } from 'react-hot-loader';
+import Homepage from './view/Homepage';
+import './styles/index.scss';
 
-class App extends Component{
-  render(){
-    return(
-      <div className="App">
-        <h1> Hello, World! </h1>
-      </div>
-    );
-  }
-}
+const App = () => (
+  <BrowserRouter>
+    <Switch>
+      <Route exact path="/" component={Homepage} />
+      <Redirect path="*" to="/" />
+    </Switch>
+  </BrowserRouter>
+);
 
-export default App;
+export default hot(module)(App);
