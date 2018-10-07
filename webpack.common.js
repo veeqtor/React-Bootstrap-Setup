@@ -2,7 +2,6 @@ const path = require('path');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-
 const htmlWebpackPlugin = new HtmlWebpackPlugin({
   template: './public/index.html',
   filename: './index.html',
@@ -23,15 +22,14 @@ module.exports = {
         loader: 'babel-loader?cacheDirectory=true',
       },
       {
-        test: /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
-        loader: 'file-loader',
+        test: /\.(eot|svg|ttf|woff|woff2)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+        loader: [
+          'file-loader?name=[name].[ext]',
+          'url-loader?limit=10000&mimetype=application/font-woff',
+        ],
       },
       {
-        test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
-        loader: 'url-loader?limit=10000&mimetype=application/font-woff',
-      },
-      {
-        test: /\.(jpe?g|png|gif|svg)$/i,
+        test: /\.(jpe?g|png|gif)(\?v=[0-9]\.[0-9]\.[0-9])?$/i,
         use: ['url-loader?limit=5000000', 'img-loader'],
       },
     ],
@@ -46,8 +44,5 @@ module.exports = {
     filename: '[name].bundle.js',
   },
 
-  plugins: [
-    cleanWebpackPlugin,
-    htmlWebpackPlugin,
-  ],
+  plugins: [cleanWebpackPlugin, htmlWebpackPlugin],
 };

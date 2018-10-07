@@ -7,7 +7,6 @@ import {
 } from 'react-router-dom';
 import { hot } from 'react-hot-loader';
 import Homepage from './view/Homepage';
-import './styles/index.scss';
 
 const App = () => (
   <BrowserRouter>
