@@ -1,13 +1,52 @@
-.App {
-  font-family: Arial, Helvetica, sans-serif;
-  margin: 5rem;
+/*
+ * Base structure
+ */
+html,
+body {
+  background: url("../assets/bg.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100%;
+}
 
-  h1 {
+.container {
+  .header {
+    font-size: 32px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    line-height: 1.35;
+    margin-top: 15rem;
     text-align: center;
-  }
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.45);
 
-  img {
-    height: 400px;
-    width: 100%;
+    p {
+      margin: 2rem 0;
+
+      .react {
+        color: #61dafb;
+      }
+
+      .bootstrap {
+        background: white;
+        border-radius: 5px;
+        color: #713cbd;
+        padding: 0 0.5rem;
+      }
+    }
+
+    .btn-custom {
+      border-color: white;
+      color: white;
+      outline: unset;
+
+      &:hover {
+        background: rgba(0, 0, 0, 0.45);
+      }
+
+      &:active {
+        outline-color: aliceblue;
+      }
+    }
   }
 }
